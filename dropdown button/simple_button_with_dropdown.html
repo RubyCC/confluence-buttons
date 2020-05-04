@@ -1,0 +1,106 @@
+<script>
+	var button = {title: "Test",
+				  link: "http://www.google.de"};
+	var links = [
+				{description: "Beschreibung 1", url: "http://www.1.de"},
+				{description: "Beschreibung 2", url: "http://www.2.de"},
+				{description: "Beschreibung 3", url: "http://www.3.de"},
+				]
+</script>
+
+<!-- DONT CHANGE THE FOLLOWING -->
+<style>
+
+.dropbtn {
+	background-color: #006384;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	transition: all 0.2s;
+}
+
+/* container div for positioning content */
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #80B0C8;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	transition: all 1s;
+}
+
+/* Links in dropdown */
+.dropdown-content a {
+	color: black !important;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #ddd;
+	//margin-left: 2px;
+}
+
+.dropdown-content a::before {
+	content: "> ";
+	opacity: 0;
+	font-weight: bold;
+	font-size: 0.9em;
+	transition: all 0.3s;
+}
+
+.dropdown-content a:hover::before {
+	content: "> ";
+	opacity: 1;
+	margin-left: 4px;
+}
+
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+	background-color: #80B0C8;
+	box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
+}
+
+
+
+
+</style>
+ <div class="dropdown">
+  <button class="dropbtn"></button>
+  <div class="dropdown-content"></div>
+</div>
+<script>
+/* change button title & add link */
+	document.querySelector(".dropdown > .dropbtn").innerHTML = button.title;
+	if (button.link != "" && button.link != undefined) {
+		document.querySelector(".dropdown > .dropbtn").style.cursor = "pointer"; 
+		document.querySelector(".dropdown > .dropbtn").addEventListener("click", function() {
+			location.href = button.link;
+		});
+	}
+	
+/* add links */
+	var parent = document.querySelector(".dropdown > .dropdown-content");
+	for (var i = 0; i < links.length; i++) {
+		var a = document.createElement("a");
+		a.href = links[i].url;
+		a.innerHTML = links[i].description;
+		parent.appendChild(a);
+	}
+</script>
