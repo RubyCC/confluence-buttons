@@ -1,0 +1,16 @@
+<div id="external-1"></div>
+
+<script>
+	var data = {id: "external-1",
+				links: 	[
+						{label: "Beschreibung 1", url: "http://www.1.de", description: "Externer Link"},
+						{label: "Beschreibung 2", url: "http://www.2.de", description: "Externer Link 2"},
+						{label: "Beschreibung 3", url: "http://www.3.de", description: "Externer Link 3"}
+						]
+				};
+</script>
+
+<!-- DONT CHANGE THE FOLLOWING -->
+<style>.btn-external{height:80px;overflow:hidden;display:inline-block;margin-right:10px;-webkit-box-shadow:2px 2px 5px 0 rgba(0,0,0,.3);-moz-box-shadow:2px 2px 5px 0 rgba(0,0,0,.3);box-shadow:2px 2px 5px 0 rgba(0,0,0,.3)}.link-caption{width:180px;height:80px;background-color:rgba(0,99,132,1);color:white;text-align:center;font-weight:700;font-size:10pt;transition:all 0.3s linear;-webkit-transition:all 0.3s linear;display:flex;justify-content:center;align-items:center}.link-info{width:180px;height:25px;background-color:rgba(128,176,200,1);text-align:center;transition:all 0.3s linear;-webkit-transition:all 0.3s linear;font-size:10px;line-height:25px;color:white}.btn-external:hover .link-info{transform:translate(0,-25px)}</style>
+
+<script>var container=document.getElementById(data.id);for(var i=0;i<data.links.length;i++){var a=document.createElement("a");a.href=data.links[i].url;container.appendChild(a);var btn=document.createElement("div");btn.className="btn-external";a.appendChild(btn);var div=document.createElement("div");div.className="link-caption";div.innerHTML=data.links[i].label;btn.appendChild(div);div=document.createElement("div");div.className="link-info";div.innerHTML=data.links[i].description;btn.appendChild(div)}</script>
